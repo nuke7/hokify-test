@@ -85,7 +85,6 @@ export default {
   methods: {
     submit() {
       this.$store.commit('clearUser')
-      localStorage.removeItem('user')
       this.user.firstName = this.$store.getters.firstName
       this.user.lastName = this.$store.getters.lastName
       this.user.email = this.$store.getters.email
@@ -99,9 +98,6 @@ export default {
 
     }
 
-    /*     updateStores() {
-      this.$store.commit('updateUser', this.user)
-    }, */
   },
 
 }
