@@ -1,14 +1,23 @@
 
 <template>
-  <div class="relative flex items-top justify-center h-screen bg-gray-100 sm:items-center sm:pt-0">
+  <div
+    class="relative flex items-top justify-center h-screen bg-gray-100 sm:items-center sm:pt-0"
+    :class="{ dark: isDarkStore }"
+  >
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+    <div
+      class="max-w-4xl mx-auto sm:px-6 lg:px-8"
+      :class="{ dark: isDarkStore }"
+    >
 
-      <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg p-6 dark">
-        <h2 class="text-2xl leading-7 font-semibold dark:text-white">
+      <div
+        class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg p-6"
+        :class="{ darkCard: isDarkStore }"
+      >
+        <h2 class="text-2xl leading-7 font-semibold">
           Welcome to hokify test SPA
         </h2>
         <form @submit.prevent="submit">
@@ -20,8 +29,12 @@
               required
               type="text"
               class="leading-6 p-2 mt-4"
+              :class="{ darkCard: isDarkStore }"
             >
-            <label>First Name</label>
+            <label
+              class="input-label"
+              :class="{ darkCardLabel: isDarkStore }"
+            >First Name</label>
           </div>
 
           <div class="input-container">
@@ -30,8 +43,12 @@
               required
               type="text"
               class="leading-6 p-2 mt-4"
+              :class="{ darkCard: isDarkStore }"
             >
-            <label>Last Name</label>
+            <label
+              class="input-label"
+              :class="{ darkCardLabel: isDarkStore }"
+            >Last Name</label>
           </div>
 
           <div class="input-container">
@@ -40,8 +57,12 @@
               required
               type="email"
               class="leading-6 p-2 mt-4"
+              :class="{ darkCard: isDarkStore }"
             >
-            <label>Email</label>
+            <label
+              class="input-label"
+              :class="{ darkCardLabel: isDarkStore }"
+            >Email</label>
           </div>
 
           <div class="button-wrapper">
@@ -54,6 +75,19 @@
               to="/reset-store"
               class="no-underline"
             ><button class="bg-blue-500 text-white font-bold py-2 px-4 my-5 rounded-full focus:outline-none focus:shadow-outline transition ease-in-out  hover:bg-blue-700 duration-700 block">reset store</button></nuxt-link>
+          </div>
+          <div class="flex justify-center items-center">
+            <input
+              id="darkToggler"
+              v-model="isDark"
+              class="darkToggle"
+              type="checkbox"
+              @change="darkToggle"
+            >
+            <label
+              for="darkToggler"
+              class="text-xl"
+            >Dark Mode</label>
           </div>
 
         </form>
@@ -84,12 +118,26 @@ export default Vue.extend({
         lastName: '',
         email: '',
       } as UserType,
+      // dark: this.isDarkStore,
     }
   },
 
   computed: {
     userData(): object {
       return this.$store.getters.stateCheck
+    },
+
+    isDarkStore(): boolean {
+      return this.$store.getters.isDarkCheck
+    },
+
+    isDark: {
+      get(): boolean {
+        return this.$store.getters.isDarkCheck
+      },
+      set(newValue: boolean) {
+        return newValue
+      },
     },
   },
 
@@ -101,6 +149,10 @@ export default Vue.extend({
       } else {
         alert('Please fill all the fields')
       }
+    },
+
+    darkToggle() {
+      this.$store.dispatch('darkToggle')
     },
   },
 })

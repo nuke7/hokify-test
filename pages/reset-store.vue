@@ -1,8 +1,17 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-screen">
+  <div
+    class="flex flex-col items-center justify-center h-screen"
+    :class="{ dark: isDarkStore }"
+  >
     <div class="w-full max-w-md">
-      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <div class="mb-4">
+      <div
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        :class="{ darkCard: isDarkStore }"
+      >
+        <div
+          class="mb-4"
+          :class="{ darkCard: isDarkStore }"
+        >
           <h1 class="text-center text-2xl font-bold">
             Hokify Test
           </h1>
@@ -17,8 +26,12 @@
               v-model="user.firstName"
               type="text"
               class="leading-6 p-2 mt-4"
+              :class="{ darkCard: isDarkStore }"
             >
-            <label>First Name</label>
+            <label
+              class="input-label"
+              :class="{ darkCardLabel: isDarkStore }"
+            >First Name</label>
           </div>
 
           <div class="input-container">
@@ -26,8 +39,12 @@
               v-model="user.lastName"
               type="text"
               class="leading-6 p-2 mt-4"
+              :class="{ darkCard: isDarkStore }"
             >
-            <label>Last Name</label>
+            <label
+              class="input-label"
+              :class="{ darkCardLabel: isDarkStore }"
+            >Last Name</label>
           </div>
 
           <div class="input-container">
@@ -35,8 +52,12 @@
               v-model="user.email"
               type="email"
               class="leading-6 p-2 mt-4"
+              :class="{ darkCard: isDarkStore }"
             >
-            <label>Email</label>
+            <label
+              class="input-label"
+              :class="{ darkCardLabel: isDarkStore }"
+            >Email</label>
           </div>
 
           <div class="button-wrapper">
@@ -77,6 +98,19 @@ export default Vue.extend({
   computed: {
     userData(): object {
       return this.$store.getters.user
+    },
+
+    isDarkStore(): boolean {
+      return this.$store.getters.isDarkCheck
+    },
+
+    isDark: {
+      get(): boolean {
+        return this.$store.getters.isDarkCheck
+      },
+      set(newValue: boolean) {
+        return newValue
+      },
     },
   },
 

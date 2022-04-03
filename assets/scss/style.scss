@@ -2,6 +2,28 @@
   position: relative;
   color: #0fb9cc;
 }
+
+.dark {
+  color: #bbf8ff;
+  background-color: #091b1d !important;
+}
+
+.darkCard {
+  color: #bbf8ff !important;
+  background-color: #16363a !important;
+}
+
+.darkCardLabel {
+  color: #bbf8ff !important;
+  background-color: transparent !important;
+}
+
+.darkToggle {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1rem;
+}
+
 input {
   height: 3rem;
   width: 100%;
@@ -22,7 +44,7 @@ input {
   }
 }
 
-label {
+.input-label {
   position: absolute;
   top: 1rem;
   bottom: 0;
@@ -39,7 +61,7 @@ label {
     color 0.15s ease-out;
 }
 
-input:focus + label {
+input:focus + .input-label {
   background-color: white;
   font-size: 0.7rem;
 
@@ -49,7 +71,7 @@ input:focus + label {
   height: fit-content;
 }
 
-input:valid + label {
+input:valid + .input-label {
   background-color: white;
   font-size: 0.7rem;
 
