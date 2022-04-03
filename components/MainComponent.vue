@@ -70,7 +70,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { UserType } from '@/types/UserType.interface'
+import { UserType } from '~/types/UserType'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 

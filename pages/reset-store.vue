@@ -59,7 +59,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { UserType } from '~/types/UserType.interface'
+import { UserType } from '~/types/UserType'
 
 export default Vue.extend({
   name: 'ResetStore',
