@@ -57,9 +57,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HokifyTest',
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'ResetStore',
 
   data() {
     return {
@@ -72,35 +74,31 @@ export default {
   },
 
   computed: {
-    userData() {
+    userData(): object {
       return this.$store.getters.user
     },
   },
 
-  async mounted() {
+  async mounted(): Promise<void> {
     await this.storeState()
     /* this.$store.commit('updateUser', this.user) */
   },
 
   methods: {
-    submit() {
+    submit(): void {
       this.$store.commit('clearUser')
       this.user.firstName = this.$store.getters.firstName
       this.user.lastName = this.$store.getters.lastName
       this.user.email = this.$store.getters.email
-
     },
 
-    storeState () {
+    storeState(): void {
       this.user.firstName = this.$store.getters.firstName
       this.user.lastName = this.$store.getters.lastName
       this.user.email = this.$store.getters.email
-
-    }
-
+    },
   },
-
-}
+})
 </script>
 
 

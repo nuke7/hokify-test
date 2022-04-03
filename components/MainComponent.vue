@@ -68,14 +68,12 @@
 
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
-import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
-Vue.use(VueMaterial)
-export default {
+export default Vue.extend({
   name: 'HokifyTest',
 
   data() {
@@ -89,24 +87,22 @@ export default {
   },
 
   computed: {
-    userData() {
+    userData(): object {
       return this.$store.getters.stateCheck
     },
   },
 
-
   methods: {
-    submit(){
+    submit() {
       if (this.user.firstName && this.user.lastName && this.user.email) {
         alert(`Hello ${this.user.firstName} ${this.user.lastName} at hokify`)
         this.$store.dispatch('userStateUpdate', this.user)
-
       } else {
         alert('Please fill all the fields')
       }
     },
   },
-}
+})
 </script>
 
 <style scoped>

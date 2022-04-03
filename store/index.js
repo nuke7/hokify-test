@@ -1,8 +1,8 @@
-export const state = {
+export const state = () => ({
   firstName: '',
   lastName: '',
   email: '',
-}
+})
 
 export const actions = {
   userStateUpdate({ commit, _state }, payload) {
