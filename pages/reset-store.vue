@@ -59,6 +59,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { UserType } from '~/types/UserType.interface'
 
 export default Vue.extend({
   name: 'ResetStore',
@@ -69,7 +70,7 @@ export default Vue.extend({
         firstName: '',
         lastName: '',
         email: '',
-      },
+      } as UserType,
     }
   },
 

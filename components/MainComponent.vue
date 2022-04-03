@@ -70,6 +70,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { UserType } from '@/types/UserType.interface'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
@@ -82,7 +83,7 @@ export default Vue.extend({
         firstName: '',
         lastName: '',
         email: '',
-      },
+      } as UserType,
     }
   },
 
