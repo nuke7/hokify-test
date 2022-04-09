@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center h-screen"
+    class="flex flex-col items-center justify-center h-screen bg-gray-100"
     :class="{ dark: isDarkStore }"
   >
     <div class="w-full max-w-md">
@@ -135,5 +135,7 @@ export default Vue.extend({
   },
 })
 </script>
+
+
 
 
