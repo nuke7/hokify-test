@@ -74,7 +74,7 @@
               v-if="userData"
               to="/reset-store"
               class="no-underline"
-            ><button class="bg-blue-500 text-white font-bold py-2 px-4 my-5 rounded-full focus:outline-none focus:shadow-outline transition ease-in-out  hover:bg-blue-700 duration-700 block">reset store</button></nuxt-link>
+            ><button class="bg-blue-500 text-white font-bold py-2 px-4 my-5 rounded-full focus:outline-none focus:shadow-outline transition ease-in-out  hover:bg-blue-700 duration-700 block">check store</button></nuxt-link>
           </div>
           <div class="flex justify-center items-center">
             <input

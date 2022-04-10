@@ -84,6 +84,7 @@ import { UserType } from '~/types/UserType'
 
 export default Vue.extend({
   name: 'ResetStore',
+  transition: 'reset-store',
 
   data() {
     return {
@@ -135,7 +136,17 @@ export default Vue.extend({
   },
 })
 </script>
-
+<style>
+.reset-store-enter-active,
+.reset-store-leave-active {
+  transition: all 0.5s;
+}
+.reset-store-enter,
+.reset-store-leave-active {
+  opacity: 0;
+  transform: translate(100%, 0);
+}
+</style>
 
 
 
